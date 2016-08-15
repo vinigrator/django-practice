@@ -13,13 +13,13 @@ class Shop(models.Model):
 class Goods(models.Model):
     name = models.CharField(max_length=255)
     count = models.IntegerField()
-    price = models.FloatField()
+    price = models.FloatField(null=True)
     description = models.TextField()
-    shops = models.ManyToManyField(Shop)
+    shops = models.ManyToManyField(Shop, null=True)
 
 class Seller(models.Model):
     name = models.CharField(max_length=255)
     characteristic = models.TextField()
     salary = models.FloatField()
     date_start = models.DateTimeField(default=datetime.datetime.now())
-    shop = models.OneToOneField(Shop, null=True)
+    shop = models.ForeignKey(Shop, null=True)

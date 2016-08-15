@@ -6,6 +6,46 @@
         </style>
     </head>
     <body>
+        {% for good in gd %}
+        <p>{{ good.name }}</p>
+        {% endfor %}
+        <hr/>
+        {% for seller in se %}
+        <p>{{ seller.name }}</p>
+        {% endfor %}
+        <hr/>
+        {% for shop in sh %}
+        <p>{{ shop.name }}</p>
+        {% endfor %}
+        <hr>
+        <h2>Все товары по магазиинам</h2>
+        {% for key, value in sh_gd.items %}
+        <h4>{{ key }}:</h4>
+            <p>
+            {% for vl in value %}
+               {{ vl.name }}
+            {% endfor %}
+            </p>
+        {% endfor %}
+
+        <hr>
+        <h2>Все продавцы по магазиинам</h2>
+        {% for key, value in sh_se.items %}
+        <h4>{{ key }}:</h4>
+            <p>
+            {% for vl in value %}
+               {{ vl.name }}
+            {% endfor %}
+            </p>
+        {% endfor %}
+
+        <hr>
+        <h2>Самый старый сотрудник {{ sb.name }}</h2>
+        <h2>Самый юный сотрудник {{ yb.name }}</h2>
+
+        <hr>
+        <h2>Есть в максимальном количестве магазинов: {{ pg }}</h2>
+
         <h1 class="logo">Это МАГАЗ</h1>
         <h1 class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;иии</h1>
         <h1 class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;и</h1>
