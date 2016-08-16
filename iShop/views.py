@@ -17,6 +17,9 @@ def view_shop_ex(request):
 
     sh_good = {}
     sh_sell = {}
+    for shop in Shop.objects.all():
+        print shop.goods_set.all()
+
     for curShop in Shop.objects.all():
         sh_good[curShop.name] = Goods.objects.filter(shops=curShop)
         sh_sell[curShop.name] = Seller.objects.filter(shop=curShop)
